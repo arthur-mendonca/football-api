@@ -1,6 +1,5 @@
-import { useContext, useState } from "react";
-import { json } from "react-router-dom";
-import { UserContext } from "../../contexts/userContext";
+import { useContext } from "react";
+import { UserContext } from "../../../contexts/userContext/userContext";
 
 const ApiKeyInput = () => {
   const { apiKey, setApiKey, loginUser } = useContext(UserContext);
@@ -13,6 +12,7 @@ const ApiKeyInput = () => {
   const sendApiKey = () => {
     loginUser(apiKey);
   };
+
   return (
     <>
       <label htmlFor="api-key-input">Inserir API-Key</label>

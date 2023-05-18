@@ -3,6 +3,7 @@ export interface IUserContext {
   apiKey: string;
   setApiKey: React.Dispatch<React.SetStateAction<string>>;
   loggedIn: boolean;
+  setLoggedIn: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface IUserProvider {

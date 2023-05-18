@@ -1,11 +1,22 @@
-import { useContext } from "react";
-import ApiKeyInput from "../../components/apiKeyInput/apiKeyInput";
+import { useContext, useEffect } from "react";
+import ApiKeyInput from "../../components/Homepage/apiKeyInput/apiKeyInput";
 import ProtectedRoute from "../../components/ProtectedRoute/ProtectedRoute";
-import { UserContext } from "../../contexts/userContext";
-import { WelcomeBlock } from "../../components/WelcomeBlock/welcomeBlock";
+import { UserContext } from "../../contexts/userContext/userContext";
+import { WelcomeBlock } from "../../components/Homepage/WelcomeBlock/welcomeBlock";
 
 const Home = () => {
-  const { loggedIn } = useContext(UserContext);
+  const { loggedIn, setLoggedIn } = useContext(UserContext);
+
+  const getApiKey = localStorage.getItem("@apiKey");
+
+  useEffect(() => {
+    if (getApiKey) {
+      setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
+    }
+  }, [getApiKey]);
+
   return (
     <>
       <main>
@@ -22,6 +33,3 @@ const Home = () => {
 };
 
 export default Home;
-
-// import React from 'react';
-// import { Link } from 'react-router-dom';

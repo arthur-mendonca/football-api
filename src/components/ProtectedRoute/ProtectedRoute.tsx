@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 
 const ProtectedRoute = () => {
@@ -6,13 +6,18 @@ const ProtectedRoute = () => {
   const apiKey = localStorage.getItem("@apiKey");
 
   useEffect(() => {
-    const apiKey = localStorage.getItem("@apiKey");
     if (!apiKey) {
       navigate("/");
+    } else {
+      navigate("/dashboard");
     }
   }, [apiKey]);
 
-  return <></>;
+  return (
+    <>
+      <Outlet />
+    </>
+  );
 };
 
 export default ProtectedRoute;
