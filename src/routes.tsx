@@ -5,6 +5,7 @@ import { Dashboard } from "./pages/Dashboard/Dashboard";
 import Countries from "./pages/Countries/Countries";
 import { CountryWrapper } from "./contexts/countriesContext/CountryWrapper/CountryWrapper";
 import { LeaguesList } from "./pages/Leagues/LeagueList";
+import { LeagueSeasons } from "./pages/LeagueSeasons/LeagueSeasons";
 
 const Router = () => {
   return (
@@ -14,10 +15,18 @@ const Router = () => {
         <Route path="/dashboard" element={<Dashboard />}>
           <Route path="countries" element={<Countries />}>
             <Route
-              path=":countryCode"
+              path=":countryCode/*"
               element={
                 <CountryWrapper countryCode={useParams().countryCode}>
-                  <LeaguesList />
+                  <Routes>
+                    <Route path="*" element={<LeaguesList />}>
+                      <Route
+                        path="league/:leagueId"
+                        element={<LeagueSeasons />}
+                        /* /dashboard/countries/:countryCode/league/:leagueId*/
+                      />
+                    </Route>
+                  </Routes>
                 </CountryWrapper>
               }
             />

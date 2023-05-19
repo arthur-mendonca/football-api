@@ -1,0 +1,18 @@
+.league-list{
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  .league-item {
+    width: 200px;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ffffff;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  li img {
+    width: 80%;
+  }

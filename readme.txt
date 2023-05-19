@@ -18,4 +18,6 @@
 14. Aplicar renderização condicional de acordo com o país selecionado;
 15. O usuário pode selecionar um país dentre os disponíveis e clicar na respectiva bandeira; 
 16. Vão ser-lhe mostradas todas as ligas disponíveis naquele país. 
-17. Guardei os dados do país escolhido no Local Storage.  
+17. Guardei os dados do país escolhido no Local Storage.
+18. Criar nova rota onde o usuário, a partir da seleção de uma liga, acessa as temporadas disponíveis relativas à liga selecionada. 
+

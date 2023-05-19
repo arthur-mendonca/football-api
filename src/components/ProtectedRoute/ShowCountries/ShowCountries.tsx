@@ -19,6 +19,7 @@ export const ShowCountries = () => {
   const selectCountryHandler = async (countryCode: string) => {
     getLeagues(countryCode);
     getCountryInfo(countryCode);
+    localStorage.setItem("@countryCode", countryCode);
     navigate(`/dashboard/countries/${countryCode}`);
   };
 
@@ -26,7 +27,7 @@ export const ShowCountries = () => {
     <div>
       <ul>
         {countriesData.map((country) => (
-          <li key={country.name}>
+          <li key={country.name} id={country.code}>
             <p>{country.name}</p>
             <img
               src={country.flag}
