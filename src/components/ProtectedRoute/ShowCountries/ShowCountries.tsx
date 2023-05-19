@@ -1,28 +1,38 @@
 import { CountriesContext } from "../../../contexts/countriesContext/countriesContext";
 import { useContext, useEffect } from "react";
 import { ICountryContext } from "../../../contexts/countriesContext/interfaces";
-import { UserContext } from "../../../contexts/userContext/userContext";
+import "./style.css";
+import { LeaguesContext } from "../../../contexts/leaguesContext/leaguesContext";
+import { useNavigate } from "react-router-dom";
 
 export const ShowCountries = () => {
   const { countriesData, getCountries } =
     useContext<ICountryContext>(CountriesContext);
-  const { apiKey } = useContext(UserContext);
+
+  const { getLeagues, getCountryInfo } = useContext(LeaguesContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
     getCountries();
-    console.log(countriesData);
   }, []);
+
+  const selectCountryHandler = async (countryCode: string) => {
+    getLeagues(countryCode);
+    getCountryInfo(countryCode);
+    navigate(`/dashboard/countries/${countryCode}`);
+  };
 
   return (
     <div>
-      <button type="button" onClick={getCountries}>
-        Mostrar países
-      </button>
       <ul>
         {countriesData.map((country) => (
-          <li key={country.code}>
+          <li key={country.name}>
             <p>{country.name}</p>
-            <img src={country.flag} alt={country.name} />
+            <img
+              src={country.flag}
+              alt={country.name}
+              onClick={() => selectCountryHandler(country.code)}
+            />
           </li>
         ))}
       </ul>

@@ -8,6 +8,8 @@ export interface ICountryContext {
   countriesData: Country[];
   setCountriesData: React.Dispatch<React.SetStateAction<Country[]>>;
   getCountries: () => Promise<CountriesResponse | undefined>;
+  country: string;
+  setCountry: React.Dispatch<React.SetStateAction<string>>;
 }
 
 export interface ICountriesProvider {

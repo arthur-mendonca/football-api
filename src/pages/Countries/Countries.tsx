@@ -1,14 +1,15 @@
+import { Outlet, useLocation } from "react-router-dom";
 import { ShowCountries } from "../../components/ProtectedRoute/ShowCountries/ShowCountries";
-import { CountriesContext } from "../../contexts/countriesContext/countriesContext";
-import { useContext } from "react";
 
 const Countries = () => {
-  const { countriesData } = useContext(CountriesContext);
+  const location = useLocation();
+
   return (
     <>
       <div>
         <p>Show Countries</p>
-        <ShowCountries />
+        {location.pathname === "/dashboard/countries" && <ShowCountries />}
+        <Outlet />
       </div>
     </>
   );

@@ -8,8 +8,6 @@ const ProtectedRoute = () => {
   useEffect(() => {
     if (!apiKey) {
       navigate("/");
-    } else {
-      navigate("/dashboard");
     }
   }, [apiKey]);
 

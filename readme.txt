@@ -14,3 +14,8 @@
     o usário ganha acesso à area de acesso restrito do site. Do contrário, 
     ele não consegue acessá-la.
 12. Criar as áreas de acesso restrito, começando pela página de escolha do país;
+13. Criar a página que mostra todos os países disponíveis, de maneira que o usuário possa clicar em uma bandeira lhe sejam mostrados as ligas daquele respectivo país;
+14. Aplicar renderização condicional de acordo com o país selecionado;
+15. O usuário pode selecionar um país dentre os disponíveis e clicar na respectiva bandeira; 
+16. Vão ser-lhe mostradas todas as ligas disponíveis naquele país. 
+17. Guardei os dados do país escolhido no Local Storage.  
