@@ -6,6 +6,7 @@ import Countries from "./pages/Countries/Countries";
 import { CountryWrapper } from "./contexts/countriesContext/CountryWrapper/CountryWrapper";
 import { LeaguesList } from "./pages/Leagues/LeagueList";
 import { LeagueSeasons } from "./pages/LeagueSeasons/LeagueSeasons";
+import { Teams } from "./pages/Teams/Teams";
 
 const Router = () => {
   return (
@@ -19,13 +20,16 @@ const Router = () => {
               element={
                 <CountryWrapper countryCode={useParams().countryCode}>
                   <Routes>
-                    <Route path="*" element={<LeaguesList />}>
-                      <Route
-                        path="league/:leagueId"
-                        element={<LeagueSeasons />}
-                        /* /dashboard/countries/:countryCode/league/:leagueId*/
-                      />
-                    </Route>
+                    <Route path="*" element={<LeaguesList />} />
+                    <Route
+                      path="league/:leagueId/*"
+                      element={
+                        <Routes>
+                          <Route path="/" element={<LeagueSeasons />} />
+                          <Route path="teams" element={<Teams />} />
+                        </Routes>
+                      }
+                    />
                   </Routes>
                 </CountryWrapper>
               }

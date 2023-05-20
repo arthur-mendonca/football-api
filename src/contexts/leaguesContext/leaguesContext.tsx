@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext } from "react";
 import { DataResponse, ILeaguesContext, ILeaguesProvider } from "./interfaces";
 import { api } from "../../services/request";
 

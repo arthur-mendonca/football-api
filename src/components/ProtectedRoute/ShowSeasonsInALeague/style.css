@@ -1,0 +1,14 @@
+.seasons-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .seasons-list li {
+    background-color: #000000;
+    color: white;
+    border-radius: 10px;
+    margin: 10px 0;
+    padding: 10px;
+    cursor: pointer;
+  }
+  

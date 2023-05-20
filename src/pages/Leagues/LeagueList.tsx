@@ -1,15 +1,18 @@
 import { useContext, useEffect } from "react";
 import { LeaguesContext } from "../../contexts/leaguesContext/leaguesContext";
-import { Outlet, useParams } from "react-router-dom";
+import { Outlet, useNavigate, useParams } from "react-router-dom";
 import {
   CountryDataResponse,
   DataResponse,
 } from "../../contexts/leaguesContext/interfaces";
 import "./style.css";
+import { SeasonsContext } from "../../contexts/seasonsContext/seasonsContext";
 
 export const LeaguesList = () => {
   const { getLeagues } = useContext(LeaguesContext);
+  const { getSeasons } = useContext(SeasonsContext);
   const { countryCode } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (countryCode) {
@@ -21,7 +24,6 @@ export const LeaguesList = () => {
   const leagues: DataResponse = storedLeagues
     ? JSON.parse(storedLeagues)
     : null;
-  console.log(leagues);
 
   const storedCountryInfo = localStorage.getItem("@countryInfo");
   const countryInfo: CountryDataResponse = storedCountryInfo
@@ -34,7 +36,13 @@ export const LeaguesList = () => {
 
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     localStorage.setItem("@leagueId", event.currentTarget.id);
-    console.log(event.currentTarget.id);
+
+    if (countryCode) {
+      getSeasons(countryCode, event.currentTarget.id);
+      navigate(
+        `/dashboard/countries/${countryCode}/league/${event.currentTarget.id}`
+      );
+    }
   };
 
   if (!leagues) {
