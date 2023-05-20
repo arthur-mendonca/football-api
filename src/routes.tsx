@@ -7,6 +7,8 @@ import { CountryWrapper } from "./contexts/countriesContext/CountryWrapper/Count
 import { LeaguesList } from "./pages/Leagues/LeagueList";
 import { LeagueSeasons } from "./pages/LeagueSeasons/LeagueSeasons";
 import { Teams } from "./pages/Teams/Teams";
+import { SelectedTeam } from "./pages/SelectedTeam/SelectedTeam";
+import { Statistics } from "./pages/Statistics/Statistics";
 
 const Router = () => {
   return (
@@ -26,7 +28,29 @@ const Router = () => {
                       element={
                         <Routes>
                           <Route path="/" element={<LeagueSeasons />} />
-                          <Route path="teams" element={<Teams />} />
+                          <Route
+                            path="teams/*"
+                            element={
+                              <Routes>
+                                <Route path="/" element={<Teams />} />
+                                <Route
+                                  path=":teamId/*"
+                                  element={
+                                    <Routes>
+                                      <Route
+                                        path="/"
+                                        element={<SelectedTeam />}
+                                      />
+                                      <Route
+                                        path="statistics"
+                                        element={<Statistics />}
+                                      />
+                                    </Routes>
+                                  }
+                                />
+                              </Routes>
+                            }
+                          />
                         </Routes>
                       }
                     />

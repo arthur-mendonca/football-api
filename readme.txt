@@ -20,4 +20,7 @@
 16. Vão ser-lhe mostradas todas as ligas disponíveis naquele país. 
 17. Guardei os dados do país escolhido no Local Storage.
 18. Criar nova rota onde o usuário, a partir da seleção de uma liga, acessa as temporadas disponíveis relativas à liga selecionada. 
+19. Ao escolher uma temporada pertencente a uma liga o usuário poderá escolher um dos times disponíveis;
+20. É mostrada uma lista com todos os times que disputaram aquela liga naquela temporada específica; 
+21. 
 

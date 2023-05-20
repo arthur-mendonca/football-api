@@ -7,9 +7,11 @@ import { TeamsContext } from "../../../contexts/teamsContext/teamsContext";
 
 export const ShowSeasonsInALeague = () => {
   const navigate = useNavigate();
+
   const { getSeasons } = useContext(SeasonsContext);
   const { getTeams } = useContext(TeamsContext);
   const { countryCode } = useParams();
+
   const leagueId = localStorage.getItem("@leagueId");
   const seasonsData: SeasonsResponse = JSON.parse(
     localStorage.getItem("@seasonsData") || ""
@@ -28,9 +30,8 @@ export const ShowSeasonsInALeague = () => {
     if (leagueId && countryCode) {
       getTeams(leagueId, event.currentTarget.id);
       navigate(`/dashboard/countries/${countryCode}/league/${leagueId}/teams`);
-      // /dashboard/countries/:countryCode/league/:leagueId/teams*/
+      localStorage.setItem("@seasonYear", event.currentTarget.id);
     }
-    // https://v3.football.api-sports.io/teams?league=39&season=2021
   };
 
   return (

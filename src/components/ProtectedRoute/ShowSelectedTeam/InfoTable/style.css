@@ -1,0 +1,23 @@
+.info-table {
+    border-collapse: collapse;
+  }
+  
+  .info-table th,
+  .info-table td {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+  .info-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+    color:black
+  }
+  
+  .info-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #18511a;
+    color: white;
+  }
+  

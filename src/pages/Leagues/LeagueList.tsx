@@ -34,7 +34,7 @@ export const LeaguesList = () => {
     storedCountryInfo && storedLeagues;
   }, [storedCountryInfo, storedLeagues]);
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
     localStorage.setItem("@leagueId", event.currentTarget.id);
 
     if (countryCode) {

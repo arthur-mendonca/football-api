@@ -2,6 +2,8 @@ import "./App.css";
 import { CountriesProvider } from "./contexts/countriesContext/countriesContext";
 import { LeaguesProvider } from "./contexts/leaguesContext/leaguesContext";
 import { SeasonsProvider } from "./contexts/seasonsContext/seasonsContext";
+import { SelectedTeamProvider } from "./contexts/selectedTeamContext/selectedTeamContext";
+import { StatisticsProvider } from "./contexts/statisticsContext/statisticsContext";
 import { TeamsProvider } from "./contexts/teamsContext/teamsContext";
 import { UserProvider } from "./contexts/userContext/userContext";
 import Router from "./routes";
@@ -15,7 +17,11 @@ function App() {
           <LeaguesProvider>
             <SeasonsProvider>
               <TeamsProvider>
-                <Router />
+                <SelectedTeamProvider>
+                  <StatisticsProvider>
+                    <Router />
+                  </StatisticsProvider>
+                </SelectedTeamProvider>
               </TeamsProvider>
             </SeasonsProvider>
           </LeaguesProvider>
