@@ -14,11 +14,12 @@
     o usário ganha acesso à area de acesso restrito do site. Do contrário, 
     ele não consegue acessá-la.
 12. Criar as áreas de acesso restrito, começando pela página de escolha do país;
-13. Criar a página que mostra todos os países disponíveis, de maneira que o usuário possa clicar em uma bandeira lhe sejam mostrados as ligas daquele respectivo país;
-14. Aplicar renderização condicional de acordo com o país selecionado;
+13. Criar a página que mostra todos os países disponíveis, de maneira que o usuário possa clicar em uma bandeira lhe sejam mostrados as ligas daquele respectivo país. A partir daqui, todas as páginas estão aninhadas, 
+    de modo que os endereços das páginas são cumulativos e representam os dados identificadores de cada item selecionado (país, liga, temporada e time);
+14. Aplicar renderização condicional de acordo com o país selecionado, o usuário é levado para a próxima página, que é a de seleção de ligas;
 15. O usuário pode selecionar um país dentre os disponíveis e clicar na respectiva bandeira; 
 16. Vão ser-lhe mostradas todas as ligas disponíveis naquele país. 
-17. Guardei os dados do país escolhido no Local Storage.
+17. Guardei os dados do país escolhido no Local Storage, bem como todos os dados identificadores de ligas, times e temporadas, para serem facilmente acessados em cada página.
 18. Criar nova rota onde o usuário, a partir da seleção de uma liga, acessa as temporadas disponíveis relativas à liga selecionada. 
 19. Ao escolher uma temporada pertencente a uma liga o usuário poderá escolher um dos times disponíveis;
 20. É mostrada uma lista com todos os times que disputaram aquela liga naquela temporada específica; 

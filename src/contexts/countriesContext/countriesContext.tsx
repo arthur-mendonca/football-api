@@ -8,7 +8,9 @@ import { api } from "../../services/request";
 
 export const CountriesContext = createContext({} as ICountryContext);
 
-export const CountriesProvider = ({ children }: ICountriesProvider) => {
+export const CountriesProvider: React.FC<ICountriesProvider> = ({
+  children,
+}) => {
   const [countriesData, setCountriesData] = useState<
     ICountryContext["countriesData"]
   >([]);

@@ -9,6 +9,7 @@ import { LeagueSeasons } from "./pages/LeagueSeasons/LeagueSeasons";
 import { Teams } from "./pages/Teams/Teams";
 import { SelectedTeam } from "./pages/SelectedTeam/SelectedTeam";
 import { Statistics } from "./pages/Statistics/Statistics";
+import { ShowPlayers } from "./components/ProtectedRoute/ShowPlayers/ShowPlayers";
 
 const Router = () => {
   return (
@@ -44,6 +45,10 @@ const Router = () => {
                                       <Route
                                         path="statistics"
                                         element={<Statistics />}
+                                      />
+                                      <Route
+                                        path="players"
+                                        element={<ShowPlayers />}
                                       />
                                     </Routes>
                                   }

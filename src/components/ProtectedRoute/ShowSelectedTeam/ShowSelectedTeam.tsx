@@ -3,7 +3,8 @@ import { SelectedTeamResponse } from "../../../contexts/selectedTeamContext/inte
 import { InfoTable } from "./InfoTable/InfoTable";
 import "./style.css";
 import { StatisticsContext } from "../../../contexts/statisticsContext/statisticsContext";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { PlayersContext } from "../../../contexts/PlayersContext/PlayersContext";
 
 export const ShowSelectedTeam = () => {
   const teamData: SelectedTeamResponse = JSON.parse(
@@ -11,6 +12,7 @@ export const ShowSelectedTeam = () => {
   );
 
   const { getStatistics } = useContext(StatisticsContext);
+  const { getPlayers } = useContext(PlayersContext);
 
   const navigate = useNavigate();
   const { countryCode, leagueId, teamId } = useParams();
@@ -19,7 +21,7 @@ export const ShowSelectedTeam = () => {
   const { response } = teamData;
   const { venue, team } = response[0];
 
-  const handleClick = () => {
+  const handleClickStatistics = () => {
     if (teamId && leagueId) {
       getStatistics(teamId, seasonYear, leagueId);
       navigate(
@@ -28,13 +30,29 @@ export const ShowSelectedTeam = () => {
     }
   };
 
+  const handleClickPlayers = () => {
+    if (teamId && seasonYear) {
+      getPlayers(teamId, seasonYear);
+      navigate(
+        `/dashboard/countries/${countryCode}/league/${leagueId}/teams/${teamId}/players`
+      );
+    }
+  };
+
+  useEffect(() => {
+    if (teamId && seasonYear) getPlayers(teamId, seasonYear);
+  }, [getPlayers, teamId, seasonYear]);
+
   return (
     <div>
       <h4>Informações</h4>
       <InfoTable />
       <img src={venue.image} alt="Estádio" className="venue-image" />
-      <button type="button" onClick={handleClick}>
+      <button type="button" onClick={handleClickStatistics}>
         Ver estatísticas
+      </button>
+      <button type="button" onClick={handleClickPlayers}>
+        Ver plantel
       </button>
     </div>
   );

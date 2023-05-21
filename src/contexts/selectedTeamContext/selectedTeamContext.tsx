@@ -21,6 +21,7 @@ export const SelectedTeamProvider: React.FC<ISelectedTeamProvider> = ({
         },
       });
       console.log(response.data);
+      localStorage.removeItem("@teamData");
       localStorage.setItem("@teamData", JSON.stringify(response.data));
       return response.data;
     } catch (error) {

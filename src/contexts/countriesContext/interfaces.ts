@@ -1,9 +1,3 @@
-export interface Country {
-  name: string;
-  code: string;
-  flag: string;
-}
-
 export interface ICountryContext {
   countriesData: Country[];
   setCountriesData: React.Dispatch<React.SetStateAction<Country[]>>;
@@ -14,6 +8,12 @@ export interface ICountryContext {
 
 export interface ICountriesProvider {
   children: React.ReactNode;
+}
+
+export interface Country {
+  name: string;
+  code: string;
+  flag: string;
 }
 
 export interface Paging {

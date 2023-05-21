@@ -1,4 +1,5 @@
 import "./App.css";
+import { PlayersProvider } from "./contexts/PlayersContext/PlayersContext";
 import { CountriesProvider } from "./contexts/countriesContext/countriesContext";
 import { LeaguesProvider } from "./contexts/leaguesContext/leaguesContext";
 import { SeasonsProvider } from "./contexts/seasonsContext/seasonsContext";
@@ -19,7 +20,9 @@ function App() {
               <TeamsProvider>
                 <SelectedTeamProvider>
                   <StatisticsProvider>
-                    <Router />
+                    <PlayersProvider>
+                      <Router />
+                    </PlayersProvider>
                   </StatisticsProvider>
                 </SelectedTeamProvider>
               </TeamsProvider>
