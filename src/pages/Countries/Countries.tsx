@@ -7,7 +7,6 @@ const Countries = () => {
   return (
     <>
       <div>
-        <p>Show Countries</p>
         {location.pathname === "/dashboard/countries" && <ShowCountries />}
         <Outlet />
       </div>

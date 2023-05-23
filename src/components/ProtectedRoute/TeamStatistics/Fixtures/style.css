@@ -1,0 +1,20 @@
+.fixtures-Table{
+    border: 1px solid white;
+}
+
+.fixtures-Table th, td {
+    text-align: left;
+    padding: 8px;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+    color: black
+  }
+  
+  th {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  

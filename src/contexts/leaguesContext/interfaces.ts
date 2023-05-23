@@ -1,6 +1,6 @@
 export interface ILeaguesContext {
   getLeagues: (countryCode: string) => Promise<DataResponse | undefined>;
-  getCountryInfo: (countryCode: string) => Promise<void>;
+  leaguesData: DataResponse | undefined;
 }
 
 export interface ILeaguesProvider {

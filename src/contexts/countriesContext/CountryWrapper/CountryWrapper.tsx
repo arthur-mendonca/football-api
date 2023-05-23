@@ -1,4 +1,3 @@
-import { Outlet } from "react-router-dom";
 import { CountriesContext } from "../countriesContext";
 import { useContext, useEffect } from "react";
 

@@ -2,5 +2,12 @@
     max-width: 100%;
     height: auto;
     width: 30rem;
+    border: 1px white solid;
   }
   
+
+  .buttons-container{
+    display: flex;
+    gap: 10px;
+    justify-content: center
+  }

@@ -1,15 +1,11 @@
+import "./style.css";
 import { useContext, useEffect } from "react";
 import { LeaguesContext } from "../../contexts/leaguesContext/leaguesContext";
 import { Outlet, useNavigate, useParams } from "react-router-dom";
-import {
-  CountryDataResponse,
-  DataResponse,
-} from "../../contexts/leaguesContext/interfaces";
-import "./style.css";
 import { SeasonsContext } from "../../contexts/seasonsContext/seasonsContext";
 
 export const LeaguesList = () => {
-  const { getLeagues } = useContext(LeaguesContext);
+  const { getLeagues, leaguesData } = useContext(LeaguesContext);
   const { getSeasons } = useContext(SeasonsContext);
   const { countryCode } = useParams();
   const navigate = useNavigate();
@@ -19,20 +15,6 @@ export const LeaguesList = () => {
       getLeagues(countryCode);
     }
   }, [countryCode]);
-
-  const storedLeagues = localStorage.getItem("@leagues");
-  const leagues: DataResponse = storedLeagues
-    ? JSON.parse(storedLeagues)
-    : null;
-
-  const storedCountryInfo = localStorage.getItem("@countryInfo");
-  const countryInfo: CountryDataResponse = storedCountryInfo
-    ? JSON.parse(storedCountryInfo)
-    : null;
-
-  useEffect(() => {
-    storedCountryInfo && storedLeagues;
-  }, [storedCountryInfo, storedLeagues]);
 
   const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
     localStorage.setItem("@leagueId", event.currentTarget.id);
@@ -45,26 +27,28 @@ export const LeaguesList = () => {
     }
   };
 
-  if (!leagues) {
+  if (!leaguesData) {
     return <p>Nenhuma liga disponível</p>;
   }
 
   return (
     <div>
       <header>
-        <h2>{countryInfo.response[0].name}</h2>
+        <h2>{leaguesData.response[0].country.name}</h2>
         <img
-          src={`${countryInfo.response[0].flag}`}
-          alt={`${countryInfo.response[0].name}` + " flag"}
+          className="country-flag-in-league-list"
+          src={`${leaguesData.response[0].country.flag}`}
+          alt={`${leaguesData?.response[0].country.name}` + " flag"}
         />
       </header>
       <section>
         <ul className="league-list">
-          {leagues.response.map((league) => (
+          {leaguesData.response.map((league) => (
             <li
               className="league-item"
               id={league.league.id.toString()}
               onClick={handleClick}
+              key={league.league.id}
             >
               <h4>{league.league.name}</h4>
               <p>{league.league.type}</p>

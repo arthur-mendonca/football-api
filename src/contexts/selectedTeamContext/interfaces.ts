@@ -2,6 +2,8 @@ export interface ISelectedTeamContext {
   getSelectedTeam: (
     teamId: string
   ) => Promise<SelectedTeamResponse | undefined>;
+
+  selectedTeam: SelectedTeamResponse | undefined;
 }
 
 export interface ISelectedTeamProvider {

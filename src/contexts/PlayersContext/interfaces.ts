@@ -3,6 +3,7 @@ export interface IPlayersContext {
     teamId: string,
     seasonYear: string
   ) => Promise<ResponsePlayersData>;
+  playersData: ResponsePlayersData | undefined;
 }
 
 export interface IPlayersProvider {

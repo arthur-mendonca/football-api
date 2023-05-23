@@ -11,4 +11,8 @@
     padding: 10px;
     cursor: pointer;
   }
+
+  .seasons-list li:hover{
+    box-shadow: 0px 4px 14px rgba(247, 247, 247, 0.25);
+  }
   

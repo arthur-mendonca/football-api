@@ -10,6 +10,3 @@ export const LeagueSeasons = () => {
     </>
   );
 };
-
-// {location.pathname === "/dashboard/countries" && <ShowCountries />}
-// <Outlet />

@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import {
   ISelectedTeamContext,
   ISelectedTeamProvider,
@@ -11,6 +11,10 @@ export const SelectedTeamContext = createContext({} as ISelectedTeamContext);
 export const SelectedTeamProvider: React.FC<ISelectedTeamProvider> = ({
   children,
 }) => {
+  const [selectedTeam, setSelectedTeam] = useState<
+    SelectedTeamResponse | undefined
+  >();
+
   const getSelectedTeam = async (
     teamId: string
   ): Promise<SelectedTeamResponse | undefined> => {
@@ -20,16 +24,15 @@ export const SelectedTeamProvider: React.FC<ISelectedTeamProvider> = ({
           "x-apisports-key": localStorage.getItem("@apiKey"),
         },
       });
-      console.log(response.data);
-      localStorage.removeItem("@teamData");
-      localStorage.setItem("@teamData", JSON.stringify(response.data));
+
+      setSelectedTeam(response.data);
       return response.data;
     } catch (error) {
       console.log(error);
     }
   };
   return (
-    <SelectedTeamContext.Provider value={{ getSelectedTeam }}>
+    <SelectedTeamContext.Provider value={{ getSelectedTeam, selectedTeam }}>
       {children}
     </SelectedTeamContext.Provider>
   );

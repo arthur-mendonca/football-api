@@ -9,7 +9,7 @@ export const ShowCountries = () => {
   const { countriesData, getCountries } =
     useContext<ICountryContext>(CountriesContext);
 
-  const { getLeagues, getCountryInfo } = useContext(LeaguesContext);
+  const { getLeagues } = useContext(LeaguesContext);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -18,8 +18,7 @@ export const ShowCountries = () => {
 
   const selectCountryHandler = async (countryCode: string) => {
     getLeagues(countryCode);
-    getCountryInfo(countryCode);
-    localStorage.setItem("@countryCode", countryCode);
+
     navigate(`/dashboard/countries/${countryCode}`);
   };
 
@@ -28,12 +27,13 @@ export const ShowCountries = () => {
       <ul>
         {countriesData.map((country) => (
           <li key={country.name} id={country.code}>
-            <p>{country.name}</p>
             <img
               src={country.flag}
               alt={country.name}
               onClick={() => selectCountryHandler(country.code)}
+              className="country-flag"
             />
+            <p className="country-name">{country.name}</p>
           </li>
         ))}
       </ul>

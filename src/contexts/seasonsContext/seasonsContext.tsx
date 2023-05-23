@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import {
   ISeasonsContext,
   ISeasonsProvider,
@@ -9,6 +9,8 @@ import { api } from "../../services/request";
 export const SeasonsContext = createContext({} as ISeasonsContext);
 
 export const SeasonsProvider: React.FC<ISeasonsProvider> = ({ children }) => {
+  const [seasons, setSeasons] = useState<SeasonsResponse | undefined>();
+
   const getSeasons = async (
     countryCode: string,
     leagueId: string
@@ -22,8 +24,8 @@ export const SeasonsProvider: React.FC<ISeasonsProvider> = ({ children }) => {
           },
         }
       );
-      console.log(response);
-      localStorage.setItem("@seasonsData", JSON.stringify(response.data));
+      setSeasons(response.data);
+
       return response.data;
     } catch (error) {
       console.log(error);
@@ -31,7 +33,7 @@ export const SeasonsProvider: React.FC<ISeasonsProvider> = ({ children }) => {
   };
 
   return (
-    <SeasonsContext.Provider value={{ getSeasons }}>
+    <SeasonsContext.Provider value={{ getSeasons, seasons }}>
       {children}
     </SeasonsContext.Provider>
   );

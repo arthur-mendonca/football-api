@@ -3,6 +3,8 @@ export interface ITeamsContext {
     leagueId: string,
     seasonYear: string
   ) => Promise<TeamsDataResponse | undefined>;
+
+  teamsData: TeamsDataResponse | undefined;
 }
 
 export interface ITeamsProvider {

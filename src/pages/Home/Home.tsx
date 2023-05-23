@@ -3,6 +3,7 @@ import ApiKeyInput from "../../components/Homepage/apiKeyInput/apiKeyInput";
 import ProtectedRoute from "../../components/ProtectedRoute/ProtectedRoute";
 import { UserContext } from "../../contexts/userContext/userContext";
 import { WelcomeBlock } from "../../components/Homepage/WelcomeBlock/welcomeBlock";
+import "./style.css";
 
 const Home = () => {
   const { loggedIn, setLoggedIn } = useContext(UserContext);
@@ -19,7 +20,7 @@ const Home = () => {
 
   return (
     <>
-      <main>
+      <main className={"main-section"}>
         {!loggedIn && (
           <div>
             <WelcomeBlock />

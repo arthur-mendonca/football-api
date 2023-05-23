@@ -12,7 +12,16 @@
     padding: 10px;
     cursor: pointer;
   }
-  
+  .country-flag-in-league-list {
+    width: 30%;
+  }
+
   li img {
     width: 80%;
+  }
+
+  @media (max-width: 600px) {
+    .league-item {
+      width: 80%;
+    }
   }

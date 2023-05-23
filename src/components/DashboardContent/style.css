@@ -1,0 +1,71 @@
+.account-section {
+    background-color: #434343;
+    padding: 20px;
+    border-radius: 20px;
+  }
+  
+  .account-details {
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .account-title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  
+  .account-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .account-label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  
+  .account-value {
+    color: #555;
+  }
+  
+  .subscription-info {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .subscription-details {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .subscription-label {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+    
+  .countries-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .countries-button:hover{
+    transition: 0.3s;
+    background-color: #0055af;
+  }
+
+  .account-label, .subscription-label{
+    font-weight: 800;
+  }
+
+  .account-label, .account-value, .subscription-label, .subscription-value{
+    color: white;
+  }  
+  

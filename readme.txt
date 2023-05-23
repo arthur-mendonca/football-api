@@ -23,5 +23,8 @@
 18. Criar nova rota onde o usuário, a partir da seleção de uma liga, acessa as temporadas disponíveis relativas à liga selecionada. 
 19. Ao escolher uma temporada pertencente a uma liga o usuário poderá escolher um dos times disponíveis;
 20. É mostrada uma lista com todos os times que disputaram aquela liga naquela temporada específica; 
-21. 
+21. O usuário escolhe um time e é levado à página do time, onde ele pode ver algumas informações sobre o time e pode escolher ver informações sobre estatísticas do time e plantel do time;
+22. Se ele optar por ver estatísticas, ele é levado à página das estatísticas, que mostram as formações mais utilizadas naquela temporada e os resultados da temporada;
+23. Se ele optar por ver o plantel, lhe é mostrado o plantel com informações contendo o nome, idade, nacionalidade e foto dos jogadores naquela temporada; 
+
 

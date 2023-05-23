@@ -4,6 +4,8 @@ export interface IStatisticsContext {
     seasonYear: string,
     leagueId: string
   ) => Promise<TeamStatisticsResponse | undefined>;
+
+  statisticsData: TeamStatisticsResponse | undefined;
 }
 
 export interface IStatisticsProvider {

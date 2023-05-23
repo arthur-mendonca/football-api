@@ -1,20 +1,26 @@
-import {
-  Player,
-  ResponsePlayersData,
-} from "../../../contexts/PlayersContext/interfaces";
-import { SelectedTeamResponse } from "../../../contexts/selectedTeamContext/interfaces";
+import { PlayersContext } from "../../../contexts/PlayersContext/PlayersContext";
+import { Player } from "../../../contexts/PlayersContext/interfaces";
+import { useContext, useEffect } from "react";
+import { SelectedTeamContext } from "../../../contexts/selectedTeamContext/selectedTeamContext";
+import { useParams } from "react-router-dom";
 
 export const ShowPlayers = () => {
-  const playersData: ResponsePlayersData = JSON.parse(
-    localStorage.getItem("@playersData") || "{}"
-  );
-
-  const teamData: SelectedTeamResponse = JSON.parse(
-    localStorage.getItem("@teamData") || "{}"
-  );
-  localStorage.getItem("@teamName") || "";
+  const { playersData, getPlayers } = useContext(PlayersContext);
+  const { selectedTeam, getSelectedTeam } = useContext(SelectedTeamContext);
+  const { teamId } = useParams();
 
   const seasonYear = localStorage.getItem("@seasonYear") || "";
+
+  useEffect(() => {
+    getPlayers(teamId!, seasonYear);
+    getSelectedTeam(teamId!);
+  }, []);
+
+  console.log(selectedTeam?.response[0].team.name);
+
+  if (playersData?.response === undefined) {
+    return <p>Dados indisponíveis.</p>;
+  }
 
   const players: Player[] = playersData.response.map((item) => {
     const player = item.player;
@@ -36,7 +42,8 @@ export const ShowPlayers = () => {
   return (
     <div>
       <h3>
-        Plantel de {teamData.response[0]?.team.name} na temporada {seasonYear}
+        Plantel de {selectedTeam?.response[0].team.name} na temporada
+        {seasonYear}
       </h3>
       <table>
         <thead>

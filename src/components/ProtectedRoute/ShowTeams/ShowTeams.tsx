@@ -1,37 +1,38 @@
-import { useContext, useEffect, useState } from "react";
-import { TeamsDataResponse } from "../../../contexts/teamsContext/interfaces";
-import { SelectedTeamContext } from "../../../contexts/selectedTeamContext/selectedTeamContext";
 import "./style.css";
+import { useContext, useEffect } from "react";
+import { SelectedTeamContext } from "../../../contexts/selectedTeamContext/selectedTeamContext";
 import { useNavigate, useParams } from "react-router-dom";
+import { TeamsContext } from "../../../contexts/teamsContext/teamsContext";
 
 export const ShowTeams = () => {
-  const [selectedTeamId, setSelectedTeamId] = useState("");
-
-  const teams: TeamsDataResponse = JSON.parse(
-    localStorage.getItem("@teamsData") || ""
-  );
   const navigate = useNavigate();
   const { countryCode, leagueId } = useParams();
 
+  const { teamsData, getTeams } = useContext(TeamsContext);
+
   const { getSelectedTeam } = useContext(SelectedTeamContext);
+
+  const seasonYear = localStorage.getItem("@seasonYear");
 
   const handleClick = (event: React.MouseEvent<HTMLLIElement>) => {
     getSelectedTeam(event.currentTarget.id);
-    setSelectedTeamId(event.currentTarget.id);
-
     navigate(
       `/dashboard/countries/${countryCode}/league/${leagueId}/teams/${event.currentTarget.id}`
     );
   };
 
   useEffect(() => {
-    getSelectedTeam(selectedTeamId);
-  }, [selectedTeamId, getSelectedTeam]);
+    getTeams(leagueId!, seasonYear!);
+  }, [leagueId!, seasonYear!]);
+
+  if (teamsData === undefined) {
+    return <p>Dados dos times não estão disponíveis.</p>;
+  }
 
   return (
     <section>
       <ul>
-        {teams.response.map((team) => (
+        {teamsData.response.map((team) => (
           <li
             key={team.team.id}
             id={team.team.id.toString()}

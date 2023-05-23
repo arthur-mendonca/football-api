@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import {
   IStatisticsContext,
   IStatisticsProvider,
@@ -11,6 +11,10 @@ export const StatisticsContext = createContext({} as IStatisticsContext);
 export const StatisticsProvider: React.FC<IStatisticsProvider> = ({
   children,
 }) => {
+  const [statisticsData, setStatisticsData] = useState<
+    TeamStatisticsResponse | undefined
+  >();
+
   const getStatistics = async (
     teamId: string,
     seasonYear: string,
@@ -26,8 +30,7 @@ export const StatisticsProvider: React.FC<IStatisticsProvider> = ({
         }
       );
 
-      localStorage.setItem("@statistics", JSON.stringify(response.data));
-      console.log(response.data);
+      setStatisticsData(response.data);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -35,7 +38,7 @@ export const StatisticsProvider: React.FC<IStatisticsProvider> = ({
   };
 
   return (
-    <StatisticsContext.Provider value={{ getStatistics }}>
+    <StatisticsContext.Provider value={{ getStatistics, statisticsData }}>
       {children}
     </StatisticsContext.Provider>
   );

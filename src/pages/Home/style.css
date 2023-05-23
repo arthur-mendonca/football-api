@@ -1,0 +1,9 @@
+
+
+.main-section{
+    background-image: url("../../assets/individual-endorsement-team-sponsorship_image.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 100vh; /* Adjust the height as needed */
+  }

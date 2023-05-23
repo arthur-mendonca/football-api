@@ -1,15 +1,16 @@
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { ITeamsContext, ITeamsProvider, TeamsDataResponse } from "./interfaces";
 import { api } from "../../services/request";
 
 export const TeamsContext = createContext({} as ITeamsContext);
 
 export const TeamsProvider: React.FC<ITeamsProvider> = ({ children }) => {
+  const [teamsData, setTeamsData] = useState<TeamsDataResponse | undefined>();
+
   const getTeams = async (
     leagueId: string,
     seasonYear: string
   ): Promise<TeamsDataResponse | undefined> => {
-    // https://v3.football.api-sports.io/teams?league=39&season=2021
     try {
       const response = await api.get(
         `/teams?league=${leagueId}&season=${seasonYear}`,
@@ -19,8 +20,7 @@ export const TeamsProvider: React.FC<ITeamsProvider> = ({ children }) => {
           },
         }
       );
-      localStorage.setItem("@teamsData", JSON.stringify(response.data));
-      console.log(response.data);
+      setTeamsData(response.data);
       return response.data;
     } catch (error) {
       console.log(error);
@@ -28,7 +28,7 @@ export const TeamsProvider: React.FC<ITeamsProvider> = ({ children }) => {
   };
 
   return (
-    <TeamsContext.Provider value={{ getTeams }}>
+    <TeamsContext.Provider value={{ getTeams, teamsData }}>
       {children}
     </TeamsContext.Provider>
   );

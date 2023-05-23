@@ -1,12 +1,9 @@
-import { SelectedTeamResponse } from "../../../../contexts/selectedTeamContext/interfaces";
+import { SelectedTeamContext } from "../../../../contexts/selectedTeamContext/selectedTeamContext";
+import { useContext } from "react";
 import "./style.css";
 
 export const InfoTable = () => {
-  const teamData: SelectedTeamResponse = JSON.parse(
-    localStorage.getItem("@teamData")!
-  );
-  const { response } = teamData;
-  const { team, venue } = response[0];
+  const { selectedTeam } = useContext(SelectedTeamContext);
 
   return (
     <table className="info-table">
@@ -18,16 +15,16 @@ export const InfoTable = () => {
       <tbody>
         <tr>
           <td>País</td>
-          <td>{team.country}</td>
+          <td>{selectedTeam?.response[0].team.country}</td>
         </tr>
         <tr>
           <td>Fundação</td>
-          <td>{team.founded}</td>
+          <td>{selectedTeam?.response[0].team.founded}</td>
         </tr>
 
         <tr>
           <td>Nome</td>
-          <td>{team.name}</td>
+          <td>{selectedTeam?.response[0].team.name}</td>
         </tr>
       </tbody>
 
@@ -40,12 +37,12 @@ export const InfoTable = () => {
       <tbody>
         <tr>
           <td>Endereço</td>
-          <td>{venue.address}</td>
+          <td>{selectedTeam?.response[0].venue.address}</td>
         </tr>
 
         <tr>
           <td>Capacidade</td>
-          <td>{venue.capacity}</td>
+          <td>{selectedTeam?.response[0].venue.capacity}</td>
         </tr>
       </tbody>
     </table>

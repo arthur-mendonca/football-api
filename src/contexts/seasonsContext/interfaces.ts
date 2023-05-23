@@ -7,6 +7,7 @@ export interface ISeasonsContext {
     countryCode: string,
     leagueId: string
   ) => Promise<SeasonsResponse | undefined>;
+  seasons: SeasonsResponse | undefined;
 }
 
 export interface FixtureCoverage {
