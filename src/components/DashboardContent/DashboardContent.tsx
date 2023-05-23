@@ -52,6 +52,20 @@ export const DashboardContent = () => {
                 {statusData?.response.subscription.plan}
               </p>
             </div>
+            <div className="subscription-details">
+              <p className="subscription-label">
+                Limite diário de requisições{" "}
+              </p>
+              <p className="subscription-value">
+                {statusData?.response.requests.limit_day}{" "}
+              </p>
+            </div>
+            <div className="subscription-details">
+              <p className="subscription-label">Requisições restantes </p>
+              <p className="subscription-value">
+                {statusData?.response.requests.current}{" "}
+              </p>
+            </div>
           </div>
         </div>
         <button

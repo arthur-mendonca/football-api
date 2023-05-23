@@ -12,7 +12,17 @@ max-width: 700px;
 
 }
 
+@media (max-width: 800px){
+    .players-table{
+        max-width: 700px;
+    }
+}
+
 @media (max-width: 600px) {
+
+    .players-table{
+        max-width: 500px;
+    }
     .player-photo {
     max-width: 100px; 
     }

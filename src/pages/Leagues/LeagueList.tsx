@@ -41,7 +41,7 @@ export const LeaguesList = () => {
           alt={`${leaguesData?.response[0].country.name}` + " flag"}
         />
       </header>
-      <section>
+      <section className="leagues-list-container">
         <ul className="league-list">
           {leaguesData.response.map((league) => (
             <li

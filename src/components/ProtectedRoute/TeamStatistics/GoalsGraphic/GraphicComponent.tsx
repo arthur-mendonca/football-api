@@ -12,8 +12,8 @@ export const GraphicComponent = () => {
 
   useEffect(() => {
     if (chartRef.current) {
-      createChart();
       getStatistics(teamId!, seasonYear!, leagueId!);
+      createChart();
     }
     return () => {
       chartRef.current = null;

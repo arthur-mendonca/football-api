@@ -14,27 +14,28 @@ import Toastify from "./toastify/toastify";
 function App() {
   return (
     <>
-      <Layout>
-        <UserProvider>
-          <CountriesProvider>
-            <LeaguesProvider>
-              <SeasonsProvider>
-                <TeamsProvider>
-                  <SelectedTeamProvider>
-                    <StatisticsProvider>
-                      <PlayersProvider>
-                        <DashboardProvider>
+      <UserProvider>
+        <CountriesProvider>
+          <LeaguesProvider>
+            <SeasonsProvider>
+              <TeamsProvider>
+                <SelectedTeamProvider>
+                  <StatisticsProvider>
+                    <PlayersProvider>
+                      <DashboardProvider>
+                        <Layout>
                           <Router />
-                        </DashboardProvider>
-                      </PlayersProvider>
-                    </StatisticsProvider>
-                  </SelectedTeamProvider>
-                </TeamsProvider>
-              </SeasonsProvider>
-            </LeaguesProvider>
-          </CountriesProvider>
-        </UserProvider>
-      </Layout>
+                        </Layout>
+                      </DashboardProvider>
+                    </PlayersProvider>
+                  </StatisticsProvider>
+                </SelectedTeamProvider>
+              </TeamsProvider>
+            </SeasonsProvider>
+          </LeaguesProvider>
+        </CountriesProvider>
+      </UserProvider>
+
       <Toastify />
     </>
   );
