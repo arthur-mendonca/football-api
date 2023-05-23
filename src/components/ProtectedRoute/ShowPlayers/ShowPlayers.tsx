@@ -17,8 +17,6 @@ export const ShowPlayers = () => {
     getSelectedTeam(teamId!);
   }, []);
 
-  console.log(selectedTeam?.response[0].team.name);
-
   if (playersData?.response === undefined) {
     return <p>Dados indisponíveis.</p>;
   }

@@ -7,8 +7,6 @@ export const LeaguesContext = createContext({} as ILeaguesContext);
 export const LeaguesProvider = ({ children }: ILeaguesProvider) => {
   const [leaguesData, setLeaguesData] = useState<DataResponse | undefined>();
 
-  console.log(leaguesData);
-
   const getLeagues = async (
     countryCode: string
   ): Promise<DataResponse | undefined> => {

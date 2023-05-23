@@ -29,5 +29,7 @@
 24. Refatorei o modo como os dados das requests são armzenados. Inicialmente, eu havia optado por armazená-los no local storage, mas isso gerou muita instabilidade nas requests, fazendo a aplicação quebrar frequentemente. Passei todos os dados de requests que precisam ser manipulados para estados do useState;
 25. Refinei a aplicação para deixá-la responsiva;
 26. Adicionei imagem de background na página inicial;
+27. Adicionei um cabeçaclho às páginas protegidas, que contém o nome do usuário logado e botão para sair da aplicação e retornar à página principal;
+28. Limpei o código para tira alguns console.log e outras anotações;
 
 

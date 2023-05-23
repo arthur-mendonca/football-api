@@ -1,10 +1,18 @@
 import { CountriesContext } from "../countriesContext";
-import { useContext, useEffect } from "react";
+import { ReactNode, useContext, useEffect } from "react";
 
-export const CountryWrapper = ({ children, countryCode }) => {
+interface CountryWrapperProps {
+  children: ReactNode;
+  countryCode: string | undefined;
+}
+
+export const CountryWrapper = ({
+  children,
+  countryCode,
+}: CountryWrapperProps) => {
   const { setCountry } = useContext(CountriesContext);
   useEffect(() => {
-    setCountry(countryCode);
+    setCountry(countryCode!);
   }, [setCountry, countryCode]);
   return <>{children}</>;
 };

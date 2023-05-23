@@ -1,7 +1,12 @@
 import { useLocation } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
+import { ReactNode } from "react";
 
-export const Layout = ({ children }) => {
+interface LayoutProps {
+  children: ReactNode;
+}
+
+export const Layout = ({ children }: LayoutProps) => {
   const location = useLocation();
   return (
     <div className="Content-wrapper">

@@ -9,7 +9,7 @@ export const DashboardContent = () => {
 
   useEffect(() => {
     getStatus();
-  });
+  }, []);
 
   const dateString = statusData?.response.subscription.end;
   const expireDate = new Date(dateString!).toLocaleDateString("pt-BR");

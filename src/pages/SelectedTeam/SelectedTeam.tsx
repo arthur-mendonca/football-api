@@ -8,8 +8,6 @@ export const SelectedTeam = () => {
   const { selectedTeam, getSelectedTeam } = useContext(SelectedTeamContext);
   const { teamId } = useParams();
 
-  console.log(selectedTeam);
-
   useEffect(() => {
     getSelectedTeam(teamId!);
   }, []);

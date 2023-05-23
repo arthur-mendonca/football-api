@@ -18,13 +18,9 @@ export const UserProvider: React.FC<IUserProvider> = ({ children }) => {
           "x-apisports-key": apiKey,
         },
       });
-      console.log(response);
-      /* CONDIÇÃO DE ERRO */
       if (response.data.errors.length !== 0) {
-        console.log("ERRO");
         toast.error("API-Key inválida.");
       } else {
-        localStorage.removeItem("@apiKey");
         localStorage.setItem("@apiKey", apiKey);
         setLoggedIn(true);
         navigate("/dashboard");
