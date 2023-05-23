@@ -1,5 +1,7 @@
 .info-table {
     border-collapse: collapse;
+    max-width: 700px;
+    margin: 0 auto;
   }
   
   .info-table th,

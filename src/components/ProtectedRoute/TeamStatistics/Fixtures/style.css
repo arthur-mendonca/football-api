@@ -1,5 +1,7 @@
 .fixtures-Table{
     border: 1px solid white;
+    margin: 0 auto;
+    max-width: 700px;
 }
 
 .fixtures-Table th, td {

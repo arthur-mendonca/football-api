@@ -26,11 +26,11 @@ export const ShowSeasonsInALeague = () => {
   }, [countryCode, leagueId]);
 
   if (seasons?.response === undefined) {
-    return <p>Informação de temporadas indisponível</p>;
+    return <p>Carregando informações.</p>;
   }
 
   return (
-    <section>
+    <section className="seasons-container">
       <ul className="seasons-list">
         {seasons?.response[0].seasons.map((season) => (
           <li

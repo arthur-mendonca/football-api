@@ -15,7 +15,7 @@ export const SelectedTeam = () => {
   }, []);
 
   if (selectedTeam === undefined || !selectedTeam.response[0].team.name) {
-    return <p>Informação do time não disponível.</p>;
+    return <p>Carregando informações.</p>;
   }
 
   return (

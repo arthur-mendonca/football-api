@@ -26,5 +26,8 @@
 21. O usuário escolhe um time e é levado à página do time, onde ele pode ver algumas informações sobre o time e pode escolher ver informações sobre estatísticas do time e plantel do time;
 22. Se ele optar por ver estatísticas, ele é levado à página das estatísticas, que mostram as formações mais utilizadas naquela temporada e os resultados da temporada;
 23. Se ele optar por ver o plantel, lhe é mostrado o plantel com informações contendo o nome, idade, nacionalidade e foto dos jogadores naquela temporada; 
+24. Refatorei o modo como os dados das requests são armzenados. Inicialmente, eu havia optado por armazená-los no local storage, mas isso gerou muita instabilidade nas requests, fazendo a aplicação quebrar frequentemente. Passei todos os dados de requests que precisam ser manipulados para estados do useState;
+25. Refinei a aplicação para deixá-la responsiva;
+26. Adicionei imagem de background na página inicial;
 
 

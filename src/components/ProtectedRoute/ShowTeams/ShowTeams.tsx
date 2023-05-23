@@ -26,7 +26,7 @@ export const ShowTeams = () => {
   }, [leagueId!, seasonYear!]);
 
   if (teamsData === undefined) {
-    return <p>Dados dos times não estão disponíveis.</p>;
+    return <p>Carregando informações.</p>;
   }
 
   return (
@@ -38,7 +38,11 @@ export const ShowTeams = () => {
             id={team.team.id.toString()}
             onClick={handleClick}
           >
-            <img src={team.team.logo} alt={`${team.team.name}+ logo`} />
+            <img
+              src={team.team.logo}
+              alt={`${team.team.name}+ logo`}
+              className="team-logo"
+            />
             <p> {team.team.name} </p>
           </li>
         ))}

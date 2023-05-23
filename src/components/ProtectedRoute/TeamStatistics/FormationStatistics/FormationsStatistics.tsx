@@ -14,7 +14,7 @@ export const FormationsStatistics = () => {
   }, []);
 
   if (statisticsData?.response === undefined) {
-    return <p>Dados não disponíveis.</p>;
+    return <p>Carregando informações.</p>;
   }
 
   const lineUps = statisticsData.response.lineups.map((lineup) => (

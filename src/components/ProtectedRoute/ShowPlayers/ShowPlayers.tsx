@@ -3,6 +3,7 @@ import { Player } from "../../../contexts/PlayersContext/interfaces";
 import { useContext, useEffect } from "react";
 import { SelectedTeamContext } from "../../../contexts/selectedTeamContext/selectedTeamContext";
 import { useParams } from "react-router-dom";
+import "./style.css";
 
 export const ShowPlayers = () => {
   const { playersData, getPlayers } = useContext(PlayersContext);
@@ -40,12 +41,12 @@ export const ShowPlayers = () => {
   });
 
   return (
-    <div>
+    <div className="show-players-container">
       <h3>
-        Plantel de {selectedTeam?.response[0].team.name} na temporada
+        Plantel de {selectedTeam?.response[0].team.name} na temporada{" "}
         {seasonYear}
       </h3>
-      <table>
+      <table className="players-table">
         <thead>
           <tr>
             <th>Nome</th>
@@ -62,7 +63,11 @@ export const ShowPlayers = () => {
                 <td>{player.age}</td>
                 <td>{player.nationality}</td>
                 <td>
-                  <img src={player.photo} alt={player.name} />
+                  <img
+                    src={player.photo}
+                    alt={player.name}
+                    className="player-photo"
+                  />
                 </td>
               </tr>
             );

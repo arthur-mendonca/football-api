@@ -28,7 +28,7 @@ export const LeaguesList = () => {
   };
 
   if (!leaguesData) {
-    return <p>Nenhuma liga disponível</p>;
+    return <p>Carregando informações.</p>;
   }
 
   return (

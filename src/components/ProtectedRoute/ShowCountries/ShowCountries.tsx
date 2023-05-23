@@ -22,8 +22,12 @@ export const ShowCountries = () => {
     navigate(`/dashboard/countries/${countryCode}`);
   };
 
+  if (countriesData === undefined || countriesData.length === 0) {
+    return <p>Carregando informações.</p>;
+  }
+
   return (
-    <div>
+    <div className="countries-container">
       <ul>
         {countriesData.map((country) => (
           <li key={country.name} id={country.code}>

@@ -14,7 +14,7 @@ export const Fixtures = () => {
   }, []);
 
   if (statisticsData?.response === undefined) {
-    return <p>Dados indisponíveis.</p>;
+    return <p>Carregando informações.</p>;
   }
 
   const { fixtures } = statisticsData.response;

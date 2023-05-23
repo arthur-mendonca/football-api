@@ -3,11 +3,14 @@
     height: auto;
     width: 30rem;
     border: 1px white solid;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
   }
   
 
   .buttons-container{
     display: flex;
     gap: 10px;
-    justify-content: center
+    justify-content: center;
+    margin-bottom: 2rem;
   }

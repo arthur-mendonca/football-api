@@ -1,0 +1,19 @@
+.show-players-container{
+    
+    width: 100%;
+    /* overflow-x: auto; */
+    display: flex;
+    flex-direction: column;
+}
+
+.players-table{
+margin: 0 auto;
+max-width: 700px;
+
+}
+
+@media (max-width: 600px) {
+    .player-photo {
+    max-width: 100px; 
+    }
+   }

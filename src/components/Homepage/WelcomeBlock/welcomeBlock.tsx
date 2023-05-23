@@ -1,3 +1,3 @@
 export const WelcomeBlock = () => {
-  return <p>Bem vindo à API-Football!</p>;
+  return <h1>Bem vindo à API-Football!</h1>;
 };
