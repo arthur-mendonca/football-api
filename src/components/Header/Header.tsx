@@ -16,6 +16,20 @@ export const Header = () => {
     navigate("/");
   };
 
+  if (
+    statusData?.response.account.firstname === undefined ||
+    statusData.response.account.firstname === undefined
+  ) {
+    return (
+      <header className="header-container">
+        <p>Usuário</p>
+        <button type="button" onClick={handleClick}>
+          Logout
+        </button>
+      </header>
+    );
+  }
+
   return (
     <header className="header-container">
       <p>
