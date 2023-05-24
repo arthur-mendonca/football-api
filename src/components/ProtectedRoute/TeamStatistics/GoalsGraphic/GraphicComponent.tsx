@@ -61,5 +61,7 @@ export const GraphicComponent = () => {
 
   if (chartRef) {
     return <canvas ref={chartRef} />;
+  } else {
+    return <div>Carregando...</div>;
   }
 };
