@@ -1,6 +1,5 @@
 import "./style.css";
-import Countries from "../Countries/Countries";
-import { useLocation } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { DashboardContent } from "../../components/DashboardContent/DashboardContent";
 
 export const Dashboard = () => {
@@ -8,7 +7,8 @@ export const Dashboard = () => {
 
   return (
     <>
-      {location.pathname === "/dashboard" && <DashboardContent />} <Countries />
+      {location.pathname === "/dashboard" && <DashboardContent />}
+      <Outlet />
     </>
   );
 };
