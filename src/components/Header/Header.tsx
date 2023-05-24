@@ -17,8 +17,8 @@ export const Header = () => {
   };
 
   if (
-    statusData?.response.account.firstname === undefined ||
-    statusData.response.account.firstname === undefined
+    !statusData?.response.account.firstname ||
+    !statusData.response.account.firstname
   ) {
     return (
       <header className="header-container">
