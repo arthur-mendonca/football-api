@@ -1,4 +1,4 @@
-import { Outlet, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { ShowCountries } from "../../components/ProtectedRoute/ShowCountries/ShowCountries";
 
 const Countries = () => {
@@ -8,10 +8,10 @@ const Countries = () => {
     <>
       <div>
         {location.pathname === "/dashboard/countries" && (
-          <h4>Países disponíveis</h4>
+          <>
+            <h4>Países disponíveis</h4> <ShowCountries />{" "}
+          </>
         )}
-        {location.pathname === "/dashboard/countries" && <ShowCountries />}
-        <Outlet />
       </div>
     </>
   );

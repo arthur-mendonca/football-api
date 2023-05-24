@@ -15,7 +15,7 @@ const Home = () => {
   useEffect(() => {
     if (getApiKey) {
       setLoggedIn(true);
-      navigate(`/`);
+      navigate(`/dashboard`);
     } else {
       setLoggedIn(false);
     }
