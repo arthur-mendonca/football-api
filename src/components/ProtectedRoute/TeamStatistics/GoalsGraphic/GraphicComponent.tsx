@@ -59,5 +59,7 @@ export const GraphicComponent = () => {
     }
   };
 
-  return <canvas ref={chartRef!} />;
+  if (chartRef) {
+    return <canvas ref={chartRef} />;
+  }
 };
