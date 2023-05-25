@@ -16,13 +16,17 @@ export const DashboardProvider: React.FC<IDashboardProvider> = ({
   >();
 
   const getStatus = async (): Promise<StatusDataResponse | undefined> => {
-    const response = await api.get("/status", {
-      headers: {
-        "x-apisports-key": localStorage.getItem("@apiKey"),
-      },
-    });
-    setStatusData(response.data);
-    return response.data;
+    try {
+      const response = await api.get("/status", {
+        headers: {
+          "x-apisports-key": localStorage.getItem("@apiKey"),
+        },
+      });
+      setStatusData(response.data);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
