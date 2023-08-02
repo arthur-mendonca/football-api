@@ -13,9 +13,9 @@ export const Header = () => {
   useEffect(() => {
     getStatus();
 
-    if (statusData?.response.account.firstname)
+    if (statusData?.response?.account?.firstname)
       setfirst(statusData.response.account.firstname);
-    if (statusData?.response.account.lastname)
+    if (statusData?.response?.account?.lastname)
       setlast(statusData.response.account.lastname);
   });
 
