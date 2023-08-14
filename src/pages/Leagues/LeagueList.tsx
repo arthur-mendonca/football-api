@@ -37,8 +37,8 @@ export const LeaguesList = () => {
         <h2>{leaguesData.response[0].country.name}</h2>
         <img
           className="country-flag-in-league-list"
-          src={`${leaguesData.response[0].country.flag}`}
-          alt={`${leaguesData?.response[0].country.name}` + " flag"}
+          src={`${leaguesData?.response[0]?.country?.flag}`}
+          alt={`${leaguesData?.response[0]?.country?.name}` + " flag"}
         />
       </header>
       <section className="leagues-list-container">
@@ -46,13 +46,13 @@ export const LeaguesList = () => {
           {leaguesData.response.map((league) => (
             <li
               className="league-item"
-              id={league.league.id.toString()}
+              id={league.league?.id.toString()}
               onClick={handleClick}
-              key={league.league.id}
+              key={league.league?.id}
             >
-              <h4>{league.league.name}</h4>
-              <p>{league.league.type}</p>
-              <img src={league.league.logo} alt={league.league.name} />
+              <h4>{league.league?.name}</h4>
+              <p>{league.league?.type}</p>
+              <img src={league.league?.logo} alt={league.league?.name} />
             </li>
           ))}
         </ul>
